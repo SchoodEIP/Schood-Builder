@@ -19,7 +19,7 @@ const { exec } = require("child_process");
  */
 module.exports = async (req, res) => {
   try {
-    exec("cd /var/www/Schood-WEB && git checkout main && git pull", (error, stdout, stderr) => {
+    exec("cd /var/www/Schood-WEB && git pull", (error, stdout, stderr) => {
         if (error) {
           console.error("a: ",error)
           throw error;

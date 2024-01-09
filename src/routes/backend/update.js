@@ -57,7 +57,7 @@ module.exports = async (req, res) => {
               throw stderr;
             }
             // Pulling new data
-            exec("cd /home/schood/schood/Schood-API && git checkout main && git pull", (error, stdout, stderr) => {
+            exec("cd /home/schood/schood/Schood-API && git pull", (error, stdout, stderr) => {
               if (error) {
                 console.error(error)
                 throw error;
