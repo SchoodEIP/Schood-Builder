@@ -2,7 +2,7 @@
   "name": "schood-builder",
   "version": "1.0.0",
   "description": "Server builder for schood project",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "nodemon --ignore node_modules",
     "test": "echo \"Error: no test specified\" && exit 1"
