@@ -57,7 +57,7 @@ async function startServer () {
         app.use('/', sanitizer, router)
   
         // Start server
-        Logger.info('INFO: START HTTP SERVER' + ' (http://localhost:' + httpPort + ')')
+        console.info('INFO: START HTTP SERVER' + ' (http://localhost:' + httpPort + ')')
   
         const serverHttp = http.createServer(app)
         serverHttp.listen(httpPort)
@@ -72,13 +72,13 @@ async function startServer () {
             ca: fs.readFileSync('./ca.pem')
           }
   
-          Logger.info('INFO: START HTTPS SERVER' + ' (https://localhost:' + httpsPort + ')')
+          console.info('INFO: START HTTPS SERVER' + ' (https://localhost:' + httpsPort + ')')
           const serverHttps = https.createServer(options, app)
           serverHttps.listen(httpsPort)
         }
         console.log('=============================================')
       } catch (error) {
-        Logger.error('ERROR: index.js error : ', error)
+        console.error('ERROR: index.js error : ', error)
       }
 }
 
