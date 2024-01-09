@@ -26,9 +26,8 @@ module.exports = async (req, res) => {
         }
         if (stderr) {
             console.error(stderr)
-          throw stderr;
         }
-        exec("cd /var/www/Schood-WEB && npm run build", (error, stdout, stderr) => {
+        exec("cd /var/www/Schood-WEB && npm install && npm run build", (error, stdout, stderr) => {
           if (error) {
             console.error(error)
             throw error;

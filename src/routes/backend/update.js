@@ -64,7 +64,6 @@ module.exports = async (req, res) => {
               }
               if (stderr) {
                 console.error(stderr)
-                throw stderr;
               }
               // Starting new server
               exec("cd /home/schood/schood/Schood-API && docker-compose up --build --detach", (error, stdout, stderr) => {
