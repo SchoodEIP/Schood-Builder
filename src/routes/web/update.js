@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
   try {
     exec("cd /var/www/Schood-WEB && git checkout main && git pull", (error, stdout, stderr) => {
         if (error) {
-          console.error(error)
+          console.error("a: ",error)
           throw error;
         }
         if (stderr) {
