@@ -4,6 +4,8 @@
  * @namespace update
  */
 
+const { exec } = require("child_process");
+
 /**
  * Main mobile update function
  * @name GET /web
@@ -18,7 +20,7 @@
 module.exports = async (req, res) => {
   try {
     // Verif received data
-    
+    return res.status(500).json({ message: 'Internal Server Error' })
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })

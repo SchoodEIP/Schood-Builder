@@ -75,6 +75,7 @@ module.exports = async (req, res) => {
                   console.error(stderr)
                   throw stderr;
                 }
+                console.log("Updated Backend")
                 return res.status(200).send();
               })
             })
