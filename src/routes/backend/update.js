@@ -22,46 +22,58 @@ module.exports = async (req, res) => {
     // Removing old docker containers
     exec("docker stop schood-api-api-1", (error, stdout, stderr) => {
       if (error) {
+        console.error(error)
         throw error;
       }
       if (stderr) {
+        console.error(stderr)
         throw stderr;
       }
       exec("docker stop schood-api-mongodb-1", (error, stdout, stderr) => {
         if (error) {
+          console.error(error)
           throw error;
         }
         if (stderr) {
+          console.error(stderr)
           throw stderr;
         }
         exec("docker rm schood-api-api-1", (error, stdout, stderr) => {
           if (error) {
+            console.error(error)
             throw error;
           }
           if (stderr) {
+            console.error(stderr)
             throw stderr;
           }
           exec("docker rm schood-api-mongodb-1", (error, stdout, stderr) => {
             if (error) {
+              console.error(error)
               throw error;
             }
             if (stderr) {
+              console.error(stderr)
               throw stderr;
             }
             // Pulling new data
             exec("cd /home/schood/schood/Schood-API && git checkout main && git pull", (error, stdout, stderr) => {
               if (error) {
+                console.error(error)
                 throw error;
               }
               if (stderr) {
+                console.error(stderr)
                 throw stderr;
               }
               // Starting new server
               exec("cd /home/schood/schood/Schood-API && docker-compose up --build --detach", (error, stdout, stderr) => {
                 if (error) {
+                  console.error(error)
                   throw error;
                 }
                 if (stderr) {
+                  console.error(stderr)
                   throw stderr;
                 }
                 return res.status(200).send();

@@ -4,6 +4,8 @@
  * @namespace update
  */
 
+const { exec } = require("child_process");
+
 /**
  * Main web update function
  * @name GET /web
@@ -19,16 +21,20 @@ module.exports = async (req, res) => {
   try {
     exec("cd /var/www/Schood-WEB && git checkout main && git pull", (error, stdout, stderr) => {
         if (error) {
+          console.error(error)
           throw error;
         }
         if (stderr) {
+            console.error(stderr)
           throw stderr;
         }
         exec("cd /var/www/Schood-WEB && npm run build", (error, stdout, stderr) => {
           if (error) {
+            console.error(error)
             throw error;
           }
           if (stderr) {
+            console.error(stderr)
             throw stderr;
           }
           return res.status(200).send();
