@@ -36,6 +36,7 @@ module.exports = async (req, res) => {
             console.error(stderr)
             throw stderr;
           }
+          console.log(stdout)
           console.log("Updated Web")
           return res.status(200).send();
         })
