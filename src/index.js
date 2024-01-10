@@ -7,8 +7,8 @@ require('dotenv').config({ path: '../.env' })
 const RateLimit = require('express-rate-limit')
 
 const app = express()
-const httpPort = process.env.HTTP_EXPRESS_PORT
-const httpsPort = process.env.HTTPS_EXPRESS_PORT
+const httpPort = process.env.HTTP_EXPRESS_PORT_BUILDER
+const httpsPort = process.env.HTTPS_EXPRESS_PORT_BUILDER
 const router = require('./routes/router.js')
 const sanitizer = require('./middleware/sanitize')
 
@@ -50,7 +50,7 @@ async function startServer () {
         app.use(cors(corsOptions))
         app.use(express.json())
         app.use(express.urlencoded({ extended: true }))
-        if (process.env.PROD === 'true') {
+        if (process.env.PROD_BUILDER === 'true') {
           app.use(limiter)
         }
         // Init router
@@ -62,7 +62,7 @@ async function startServer () {
         const serverHttp = http.createServer(app)
         serverHttp.listen(httpPort)
   
-        if (process.env.HTTPS === 'true') {
+        if (process.env.HTTPS_BUILDER === 'true') {
           /**
            * Set keys files
            */
