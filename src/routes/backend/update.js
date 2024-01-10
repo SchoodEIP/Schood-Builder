@@ -19,6 +19,7 @@ const { exec } = require("child_process");
  */
 module.exports = async (req, res) => {
   try {
+    console.log("Update Backend")
     // Removing old docker containers
     exec("docker stop schood-api-api-1", (error, stdout, stderr) => {
       if (error) {

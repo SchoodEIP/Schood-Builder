@@ -19,6 +19,8 @@ const { exec } = require("child_process");
  */
 module.exports = async (req, res) => {
   try {
+    console.log("Update Mobile")
+
     // Verif received data
     return res.status(500).json({ message: 'Internal Server Error' })
   } catch (error) {
