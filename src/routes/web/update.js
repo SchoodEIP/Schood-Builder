@@ -34,7 +34,6 @@ module.exports = async (req, res) => {
           }
           if (stderr) {
             console.error(stderr)
-            throw stderr;
           }
           console.log(stdout)
           console.log("Updated Web")
