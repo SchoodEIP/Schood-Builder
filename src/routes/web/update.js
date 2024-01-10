@@ -39,8 +39,7 @@ module.exports = async (req, res) => {
           console.log("Updated Web")
           return res.status(200).send();
         })
-      })
-      return res.status(500).json({ message: 'Internal Server Error' })
+    })
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })

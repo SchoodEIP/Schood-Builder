@@ -27,7 +27,6 @@ module.exports = async (req, res) => {
       }
       if (stderr) {
         console.error(stderr)
-        throw stderr;
       }
       exec("docker stop schood-api-mongodb-1", (error, stdout, stderr) => {
         if (error) {
@@ -36,7 +35,6 @@ module.exports = async (req, res) => {
         }
         if (stderr) {
           console.error(stderr)
-          throw stderr;
         }
         exec("docker rm schood-api-api-1", (error, stdout, stderr) => {
           if (error) {
@@ -45,7 +43,6 @@ module.exports = async (req, res) => {
           }
           if (stderr) {
             console.error(stderr)
-            throw stderr;
           }
           exec("docker rm schood-api-mongodb-1", (error, stdout, stderr) => {
             if (error) {
@@ -54,7 +51,6 @@ module.exports = async (req, res) => {
             }
             if (stderr) {
               console.error(stderr)
-              throw stderr;
             }
             // Pulling new data
             exec("cd /home/schood/schood/Schood-API && git pull", (error, stdout, stderr) => {
@@ -73,7 +69,6 @@ module.exports = async (req, res) => {
                 }
                 if (stderr) {
                   console.error(stderr)
-                  throw stderr;
                 }
                 console.log("Updated Backend")
                 return res.status(200).send();
@@ -83,7 +78,6 @@ module.exports = async (req, res) => {
         })
       })
     })
-    return res.status(500).json({ message: 'Internal Server Error' })
   } catch (error) {
     console.error(error)
     return res.status(500).json({ message: 'Internal Server Error' })
