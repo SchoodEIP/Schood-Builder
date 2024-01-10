@@ -22,20 +22,20 @@ const limiter = RateLimit({
 
 const corsOptions = {
   origin: [
-    'http://localhost:8082',
-    'https://localhost:8082',
-    'http://localhost',
-    'https://localhost',
     'http://localhost:8083',
     'https://localhost:8083',
+    'http://localhost',
+    'https://localhost',
+    'http://localhost:8084',
+    'https://localhost:8084',
     'http://localhost:3001',
     'https://localhost:3001',
-    'http://schood.fr:8082',
-    'https://schood.fr:8082',
+    'http://schood.fr:8083',
+    'https://schood.fr:8083',
     'http://schood.fr',
     'https://schood.fr',
-    'http://schood.fr:8083',
-    'https://schood.fr:8083'
+    'http://schood.fr:8084',
+    'https://schood.fr:8084'
   ],
   optionsSuccessStatus: 200,
   allowedHeaders: ['Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization, Cache-Control'],
